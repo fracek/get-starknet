@@ -1,15 +1,15 @@
+import { createStore } from "@get-starknet/discovery";
+import type { StarknetWalletAccount } from "@get-starknet/wallet-standard";
+import type { WalletWithStarknetFeatures } from "@get-starknet/wallet-standard/features";
 import {
   QueryClient,
   QueryClientProvider,
   useMutation,
   useQuery,
 } from "@tanstack/react-query";
-import { RefreshCcw, Trash } from "lucide-react";
-import { createStore } from "@get-starknet/discovery";
-import type { WalletWithStarknetFeatures } from "@get-starknet/wallet-standard/features";
-import type { StarknetWalletAccount } from "@get-starknet/wallet-standard";
-import { useCallback, useEffect, useState } from "react";
 import type { StandardEventsChangeProperties } from "@wallet-standard/features";
+import { RefreshCcw, Trash } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
 const store = createStore();
 const queryClient = new QueryClient();

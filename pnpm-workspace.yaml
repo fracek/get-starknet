@@ -3,4 +3,5 @@ packages:
   - "packages/wallet-standard"
   - "packages/discovery"
   - "packages/virtual-wallet"
+  - "packages/modal"
   - "docs"

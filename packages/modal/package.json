@@ -1,5 +1,5 @@
 {
-  "name": "@get-starknet/wallets",
+  "name": "@get-starknet/modal",
   "version": "5.0.0-beta.0",
   "keywords": ["starknet", "starkware", "l2", "zk", "rollup", "wallet", "dapp"],
   "license": "MIT",
@@ -10,26 +10,32 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
       "default": "./dist/index.mjs"
-    },
-    "./wallets": {
-      "types": "./dist/wallets.d.ts",
-      "import": "./dist/wallets.mjs",
-      "require": "./dist/wallets.cjs",
-      "default": "./dist/wallets.mjs"
     }
   },
   "files": ["dist", "src"],
   "scripts": {
-    "build": "unbuild",
+    "build": "rollup -c rollup.config.mjs",
     "lint:check": "biome check .",
     "lint": "biome check --write .",
     "test": "vitest"
   },
+  "dependencies": {
+    "@get-starknet/discovery": "workspace:^",
+    "@get-starknet/wallet-standard": "workspace:^",
+    "@get-starknet/wallets": "workspace:^",
+    "@wallet-standard/base": "^1.1.0",
+    "@wallet-standard/features": "^1.1.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "rollup": "^4.37.0",
     "typescript": "^5.7.2",
-    "unbuild": "^2.0.0",
     "vitest": "^2.1.8"
   }
 }

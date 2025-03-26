@@ -1,3 +1,22 @@
+import type { StarknetWalletAccount } from "@get-starknet/wallet-standard";
+import {
+  STARKNET_CHAIN_PREFIX,
+  WELL_KNOWN_STARKNET_CHAINS,
+  isStarknetChain,
+} from "@get-starknet/wallet-standard/chains";
+import type { StarknetChain } from "@get-starknet/wallet-standard/chains";
+import {
+  type StarknetFeatures,
+  StarknetWalletApi,
+  type WalletWithStarknetFeatures,
+} from "@get-starknet/wallet-standard/features";
+import { init, loadRemote } from "@module-federation/runtime";
+import type {
+  RequestFnCall,
+  RpcMessage,
+  RpcTypeToMessageMap,
+  StarknetWindowObject,
+} from "@starknet-io/types-js";
 import {
   StandardConnect,
   type StandardConnectMethod,
@@ -8,27 +27,8 @@ import {
   type StandardEventsNames,
   type StandardEventsOnMethod,
 } from "@wallet-standard/features";
-import type { EIP1193Provider } from "viem";
-import type {
-  RequestFnCall,
-  RpcMessage,
-  RpcTypeToMessageMap,
-  StarknetWindowObject,
-} from "@starknet-io/types-js";
-import {
-  StarknetWalletApi,
-  type StarknetFeatures,
-  type WalletWithStarknetFeatures,
-} from "@get-starknet/wallet-standard/features";
-import {
-  isStarknetChain,
-  STARKNET_CHAIN_PREFIX,
-  WELL_KNOWN_STARKNET_CHAINS,
-} from "@get-starknet/wallet-standard/chains";
-import type { StarknetWalletAccount } from "@get-starknet/wallet-standard";
-import type { StarknetChain } from "@get-starknet/wallet-standard/chains";
 import { Mutex } from "async-mutex";
-import { init, loadRemote } from "@module-federation/runtime";
+import type { EIP1193Provider } from "viem";
 
 import type { EIP6963ProviderInfo } from "./types";
 
